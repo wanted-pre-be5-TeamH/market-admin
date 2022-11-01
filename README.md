@@ -5,10 +5,8 @@
 ![NestJS](https://img.shields.io/badge/nestjs-%23E0234E.svg?style=plastic&logo=nestjs&logoColor=white)
 ![MySQL](https://img.shields.io/badge/mysql-%2300f.svg?style=plastic&logo=mysql&logoColor=white)
 
-
 [![Test Status](https://github.com/wanted-pre-be5-TeamH/market-admin/actions/workflows/push_cov_report.yml/badge.svg)](https://github.com/wanted-pre-be5-TeamH/market-admin/actions/workflows/push_cov_report.yml)
 [![Test Coverage](https://img.shields.io/endpoint?url=https://gist.githubusercontent.com/rojiwon0325/e9d685dac7c70dfad1305ce9d8174a29/raw/coverage_market-admin.json)](https://wanted-pre-be5-teamh.github.io/market-admin)
-
 
 </div>
 
@@ -25,11 +23,14 @@
   - 쿠폰 코드 발급
 - 쿠폰 내역 조회
   - 쿠폰 타입별 사용 횟수, 총 할인액
-------------
+
+---
+
 - 테스트용 주문 API
   - 쿠폰적용
   - 구매 국가, 상품수에 따른 배송비 적용
   - 1달러 = 1200원 계산
+
 ## 설계도
 
 ### 주문 내역 조회
@@ -63,10 +64,10 @@
 
 ## 진행상황
 
-- [ ] excel 접근 시스템 구현
-- [ ] 주문 내역 조회 및 검색
+- [ ] 주문 요청(테스트용)
 - [ ] 주문 배송 상태 변경
+- [ ] 주문 내역 조회 및 검색
 - [ ] 쿠폰 타입 생성
 - [ ] 쿠폰 생성
 - [ ] 쿠폰 내역 조회
-- [ ] 테스트용 주문 API
+- [ ] excel 접근 시스템 구현
