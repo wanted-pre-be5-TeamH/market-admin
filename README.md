@@ -60,7 +60,7 @@
 
 ### 쿠폰 타입 생성
 
-![image](https://user-images.githubusercontent.com/68629004/199133439-ee58db62-ed61-414e-b2ec-8fc5d8ac0b90.png)
+![쿠폰 타입](https://user-images.githubusercontent.com/68629004/199165970-d4cd0c42-5044-4e9d-a3f1-420291f67423.png)
 
 ## 진행상황
 
