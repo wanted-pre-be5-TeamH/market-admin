@@ -1,13 +1,17 @@
-import { Body, Controller, Get, Param, Post } from '@nestjs/common';
+import { Body, Controller, Get, Inject, Param, Post } from '@nestjs/common';
+import { CouponTypeUsecase } from '../application/adapter/coupon-type.usecase';
 import { ICouponTypeUsecase } from '../application/port/coupon-type.usecase.interface';
 import {
   CreateCouponTypeBody,
   FindOneCouponTypeParam,
 } from './coupon-type.dto';
 
-@Controller('coupon-type')
+@Controller('coupon-types')
 export class CouponTypeController {
-  constructor(private readonly couponTypeUsecase: ICouponTypeUsecase) {}
+  constructor(
+    @Inject(CouponTypeUsecase)
+    private readonly couponTypeUsecase: ICouponTypeUsecase,
+  ) {}
 
   @Get(':coupon_type_id')
   findOne(@Param() { coupon_type_id: id }: FindOneCouponTypeParam) {

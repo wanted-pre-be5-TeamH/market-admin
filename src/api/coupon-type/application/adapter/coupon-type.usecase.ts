@@ -1,15 +1,17 @@
-import { Injectable } from '@nestjs/common';
+import { Inject, Injectable } from '@nestjs/common';
 import { CouponType } from '../../domain/coupon-type.aggregte';
 import { CouponTypeDomain } from '../../domain/coupon-type.interface';
 import { ICouponTypeRepository } from '../../infrastructure/port/coupon-type.repository.interface';
 import { CouponTypeApplication } from '../dto/coupon-type.dto';
 import { ICouponTypeService } from '../port/coupon-type.service.interface';
 import { ICouponTypeUsecase } from '../port/coupon-type.usecase.interface';
+import { CouponTypeService } from './coupon-type.service';
 
 @Injectable()
 export class CouponTypeUsecase implements ICouponTypeUsecase {
   constructor(
     private readonly couponTypeRepository: ICouponTypeRepository,
+    @Inject(CouponTypeService)
     private readonly couponTypeService: ICouponTypeService,
   ) {}
 
