@@ -9,11 +9,6 @@ import {
 export class CouponTypeController {
   constructor(private readonly couponTypeUsecase: ICouponTypeUsecase) {}
 
-  @Get()
-  findMany() {
-    return this.couponTypeUsecase.findMany();
-  }
-
   @Get(':coupon_type_id')
   findOne(@Param() { coupon_type_id: id }: FindOneCouponTypeParam) {
     return this.couponTypeUsecase.findOne(id);

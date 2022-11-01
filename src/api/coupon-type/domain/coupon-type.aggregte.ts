@@ -8,7 +8,7 @@ export class CouponType
   flat_price: number;
   discount_price: number;
   discount_rate: number;
-  static get: () => CouponTypeDomain.Aggregate;
+  static get: (props: CouponTypeDomain.Props) => CouponTypeDomain.Aggregate;
   getResponse: () => CouponTypeDomain.Response;
   caculateDiscountedPrice: (price: number) => number;
 }
