@@ -1,8 +1,10 @@
 import { IsNumber } from 'class-validator';
 import { TypeOrmBaseEntity } from 'src/api/common/base/base-entity.typeorm';
-import { Column, Entity } from 'typeorm';
+import { CouponEntity } from 'src/api/coupon/infrastructure/model/coupon.entity';
+import { Column, Entity, OneToMany, Unique } from 'typeorm';
 
-@Entity('coupon_types')
+@Unique(['flat_price', 'discount_price', 'discount_rate'])
+@Entity({ name: 'coupon_types' })
 export class CouponTypeEntity extends TypeOrmBaseEntity {
   @Column()
   @IsNumber()
@@ -12,7 +14,10 @@ export class CouponTypeEntity extends TypeOrmBaseEntity {
   @IsNumber()
   discount_price: number;
 
-  @Column()
+  @Column({ type: 'float' })
   @IsNumber()
   discount_rate: number;
+
+  @OneToMany(() => CouponEntity, (entity) => entity.coupon_type)
+  coupons: CouponEntity[];
 }

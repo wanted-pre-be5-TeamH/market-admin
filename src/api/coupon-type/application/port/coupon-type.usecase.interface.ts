@@ -1,9 +1,9 @@
 import { CouponTypeDomain } from '../../domain/coupon-type.interface';
-import { CouponTypeApplication } from '../dto/coupon-type.dto';
+import { CouponTypeUsecaseDTO } from '../dto/coupon-type.usecase.dto';
 
 export interface ICouponTypeUsecase {
   create: (
-    dto: CouponTypeApplication.CreateUsecaseDTO,
+    dto: CouponTypeUsecaseDTO.Create,
   ) => Promise<CouponTypeDomain.Response>;
 
   findOne: (id: CouponTypeDomain.Id) => Promise<CouponTypeDomain.Response>;

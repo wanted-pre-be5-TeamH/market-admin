@@ -1,7 +1,7 @@
 import { CouponTypeDomain } from '../../domain/coupon-type.interface';
 
-export namespace CouponTypeApplication {
-  export type CreateUsecaseDTO = Partial<
+export namespace CouponTypeUsecaseDTO {
+  export type Create = Partial<
     Pick<
       CouponTypeDomain.Property,
       'flat_price' | 'discount_price' | 'discount_rate'

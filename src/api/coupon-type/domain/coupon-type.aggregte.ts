@@ -12,6 +12,9 @@ export class CouponType
     readonly flat_price: number,
     readonly discount_price: number,
     readonly discount_rate: number,
+    readonly count_used: number,
+    readonly count_unused: number,
+    readonly total_discounted_price: number,
   ) {
     super(id, created_at, updated_at);
   }
@@ -24,6 +27,9 @@ export class CouponType
       flat_price,
       discount_price,
       discount_rate,
+      count_used,
+      count_unused,
+      total_discounted_price,
     } = props;
     const now = new Date();
     return new CouponType(
@@ -33,29 +39,30 @@ export class CouponType
       flat_price,
       discount_price,
       discount_rate,
+      count_used ?? 0,
+      count_unused ?? 0,
+      total_discounted_price ?? 0,
     );
   }
 
-  static calculateDiscountedPrice(
-    price: number,
-    coupon: Pick<
-      CouponTypeDomain.Property,
-      'flat_price' | 'discount_price' | 'discount_rate'
-    >,
-  ): number {
-    const { flat_price, discount_price, discount_rate } = coupon;
-    let discounted = price;
-    if (discounted >= flat_price) {
-      discounted = (discounted - discount_price) * discount_rate;
-      if (discounted < 0) {
-        discounted = 0;
-      }
-    }
-    return discounted;
-  }
-
   getResponse(): CouponTypeDomain.Response {
-    const { id, flat_price, discount_price, discount_rate } = this;
-    return { id, flat_price, discount_price, discount_rate };
+    const {
+      id,
+      flat_price,
+      discount_price,
+      discount_rate,
+      count_unused,
+      count_used,
+      total_discounted_price,
+    } = this;
+    return {
+      id,
+      flat_price,
+      discount_price,
+      discount_rate,
+      count_unused,
+      count_used,
+      total_discounted_price,
+    };
   }
 }

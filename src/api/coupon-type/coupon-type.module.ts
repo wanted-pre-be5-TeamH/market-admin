@@ -16,6 +16,5 @@ import { CouponTypeController } from './presentation/coupon-type.controller';
     CouponTypeUsecase,
   ],
   controllers: [CouponTypeController],
-  exports: [CouponTypeService],
 })
 export class CouponTypeModule {}

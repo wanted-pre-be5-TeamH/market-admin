@@ -1,7 +1,6 @@
 import { Inject, Injectable } from '@nestjs/common';
 import { httpExceptionProvider } from 'src/api/common/provider/exception.provider';
 import { ExceptionMessage } from 'src/api/common/provider/message.provider';
-import { CouponType } from '../../domain/coupon-type.aggregte';
 import { CouponTypeDomain } from '../../domain/coupon-type.interface';
 import { CouponTypeRepository } from '../../infrastructure/adapter/coupon-type.repository';
 import { ICouponTypeRepository } from '../../infrastructure/port/coupon-type.repository.interface';
@@ -20,15 +19,5 @@ export class CouponTypeService implements ICouponTypeService {
       throw httpExceptionProvider('404', ExceptionMessage.NotFound);
     }
     return couponType;
-  }
-
-  calculateDiscountedPrice(
-    price: number,
-    coupon: Pick<
-      CouponTypeDomain.Property,
-      'flat_price' | 'discount_price' | 'discount_rate'
-    >,
-  ): number {
-    return CouponType.calculateDiscountedPrice(price, coupon);
   }
 }

@@ -5,14 +5,24 @@ export namespace CouponTypeDomain {
   export type Id = number;
 
   export interface Property extends BaseAggregate<Id> {
-    flat_price: number;
-    discount_price: number; //rate보다 먼저 적용되야 함
-    discount_rate: number; // 0~1 사이의 숫자
+    readonly flat_price: number;
+    readonly discount_price: number; //rate보다 먼저 적용되야 함
+    readonly discount_rate: number; // 0~1 사이의 숫자
+
+    readonly count_unused: number;
+    readonly count_used: number;
+    readonly total_discounted_price: number;
   }
 
   export type Response = Pick<
     Property,
-    'id' | 'flat_price' | 'discount_price' | 'discount_rate'
+    | 'id'
+    | 'flat_price'
+    | 'discount_price'
+    | 'discount_rate'
+    | 'count_used'
+    | 'count_unused'
+    | 'total_discounted_price'
   >;
 
   interface Method {
@@ -25,14 +35,20 @@ export namespace CouponTypeDomain {
     Property,
     'flat_price' | 'discount_price' | 'discount_rate'
   > &
-    Partial<Pick<Property, 'id' | 'created_at' | 'updated_at'>>;
+    Partial<
+      Pick<
+        Property,
+        | 'id'
+        | 'created_at'
+        | 'updated_at'
+        | 'count_unused'
+        | 'count_used'
+        | 'total_discounted_price'
+      >
+    >;
 
   interface StaticMethod {
     get: (props: Props) => Aggregate;
-    calculateDiscountedPrice: (
-      price: number,
-      coupon: Pick<Property, 'flat_price' | 'discount_price' | 'discount_rate'>,
-    ) => number;
   }
 
   export type Static<C extends StaticMethod> = Implements<
