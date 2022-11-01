@@ -17,7 +17,6 @@ export namespace CouponTypeDomain {
 
   interface Method {
     getResponse: () => Response;
-    caculateDiscountedPrice: (price: number) => number;
   }
 
   export type Aggregate = Property & Method;
@@ -30,6 +29,10 @@ export namespace CouponTypeDomain {
 
   interface StaticMethod {
     get: (props: Props) => Aggregate;
+    calculateDiscountedPrice: (
+      price: number,
+      coupon: Pick<Property, 'flat_price' | 'discount_price' | 'discount_rate'>,
+    ) => number;
   }
 
   export type Static<C extends StaticMethod> = Implements<
