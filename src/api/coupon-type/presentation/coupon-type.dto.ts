@@ -1,5 +1,5 @@
 import { Type } from 'class-transformer';
-import { IsNumber, IsOptional } from 'class-validator';
+import { IsNumber, IsOptional, Max, Min } from 'class-validator';
 import { CouponTypeApplication } from '../application/dto/coupon-type.dto';
 
 export class FindOneCouponTypeParam {
@@ -21,5 +21,7 @@ export class CreateCouponTypeBody
 
   @IsOptional()
   @IsNumber()
+  @Min(0)
+  @Max(1)
   discount_rate?: number;
 }
