@@ -2,7 +2,7 @@ name: 'Test'
 
 on:
   push:
-    branches: [ _main ]
+    branches: [ main ]
     
 jobs:            
   deploy_coverage:
@@ -56,9 +56,9 @@ jobs:
         uses: schneegans/dynamic-badges-action@v1.5.0
         with:
           auth: ${{ secrets.GIST_SECRET }}
-          gistID: GIST_ID
+          gistID: e9d685dac7c70dfad1305ce9d8174a29
           filename: GIST_FILENAME.json
-          label: coverage
+          label: coverage_market-admin.json
           message: ${{ steps.coverageComment.outputs.coverage }}%
           color: ${{ steps.coverageComment.outputs.color }}
           namedLogo: jest
