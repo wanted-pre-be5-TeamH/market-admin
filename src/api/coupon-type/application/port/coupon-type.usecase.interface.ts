@@ -6,6 +6,8 @@ export interface ICouponTypeUsecase {
     dto: CouponTypeUsecaseDTO.Create,
   ) => Promise<CouponTypeDomain.Response>;
 
-  findOne: (id: CouponTypeDomain.Id) => Promise<CouponTypeDomain.Response>;
+  findOne: (
+    dto: CouponTypeUsecaseDTO.FindOne,
+  ) => Promise<CouponTypeDomain.Response>;
   findMany: () => Promise<CouponTypeDomain.Response[]>;
 }

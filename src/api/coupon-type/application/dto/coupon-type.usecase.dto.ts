@@ -7,4 +7,5 @@ export namespace CouponTypeUsecaseDTO {
       'flat_price' | 'discount_price' | 'discount_rate'
     >
   >;
+  export type FindOne = Pick<CouponTypeDomain.Property, 'id'>;
 }

@@ -33,8 +33,10 @@ export class CouponTypeUsecase implements ICouponTypeUsecase {
     ).getResponse();
   }
 
-  async findOne(id: number): Promise<CouponTypeDomain.Response> {
-    return (await this.couponTypeService.findOne(id)).getResponse();
+  async findOne({
+    id,
+  }: CouponTypeUsecaseDTO.FindOne): Promise<CouponTypeDomain.Response> {
+    return (await this.couponTypeService.findOne({ id })).getResponse();
   }
 
   async findMany(): Promise<CouponTypeDomain.Response[]> {

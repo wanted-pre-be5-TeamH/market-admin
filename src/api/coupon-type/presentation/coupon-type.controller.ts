@@ -33,7 +33,7 @@ export class CouponTypeController {
 
   @Get(':coupon_type_id')
   findOne(@Param() { coupon_type_id: id }: FindOneCouponTypeParam) {
-    return this.couponTypeUsecase.findOne(id);
+    return this.couponTypeUsecase.findOne({ id });
   }
 
   @Post()
